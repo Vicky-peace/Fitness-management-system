@@ -26,7 +26,9 @@ export const links = [
     {
         name: "Contact",
         path: '/contacts'
-    }
+    },
+    { name: 'Sign In', path: '/signin' },
+    { name: 'Sign Up', path: '/signup' }
 ]
 
 
