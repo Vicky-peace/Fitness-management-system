@@ -5,8 +5,8 @@ import './signup.css'
 
 const SignUp = () => {
   return (
-    <div>
-        signin
+    <div className=''>
+        
       
     </div>
   )
