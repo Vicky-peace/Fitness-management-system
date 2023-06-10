@@ -13,13 +13,12 @@ const Values = () => {
         </div>
         <div className='values__right'>
             <SectionHead icon={<GiCutDiamond/>} title="Values"/>
-            <p><p>Transform your body and achieve fitness goals with our expert trainers and state-of-the-art equipment.</p>
- </p>
-
+            <p>Transform your body and achieve fitness goals with our expert trainers and state-of-the-art equipment.</p>
+ 
             <div className='values__wrapper'>
               {
                 values.map(({id,title, desc}) =>{
-                    return <Card className="values__value">
+                    return <Card key={id} className="values__value">
                         <h4>{title}</h4>
                         <small>{desc}</small>
                         </Card>
