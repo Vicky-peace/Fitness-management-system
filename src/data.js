@@ -32,6 +32,40 @@ export const links = [
 ]
 
 
+export const faqs = [
+  {
+    id: 1,
+    question: "How often should I exercise?",
+    answer: "The frequency of exercise depends on your fitness goals and current fitness level. It is generally recommended to engage in moderate-intensity exercise for at least 150 minutes per week or vigorous-intensity exercise for 75 minutes per week."
+  },
+  {
+    id: 2,
+    question: "What time of day is best to work out?",
+    answer: "The best time to work out varies from person to person. Some people find that exercising in the morning helps energize them for the day, while others prefer evening workouts to relieve stress. Choose a time that works best for your schedule and allows you to be consistent with your exercise routine."
+  },
+  {
+    id: 3,
+    question: "How long should my workouts be?",
+    answer: "The duration of your workouts depends on your fitness level and the type of exercise you're performing. For cardiovascular workouts, aim for 30 to 60 minutes per session. Strength training sessions can range from 20 to 60 minutes. It's important to listen to your body and gradually increase the duration as your fitness improves."
+  },
+  {
+    id: 4,
+    question: "Do I need to warm up before my workouts?",
+    answer: "Yes, warming up before workouts is important to prepare your body for exercise. It helps increase blood flow to your muscles, improves flexibility, and reduces the risk of injury. Spend 5 to 10 minutes doing dynamic stretches and light aerobic exercises to warm up before your main workout."
+  },
+  {
+    id: 5,
+    question: "Should I do strength training, cardio or both?",
+    answer: "A balanced fitness routine usually includes a combination of strength training and cardio exercises. Strength training helps build muscle strength and tone, while cardio exercises improve cardiovascular health and burn calories. Incorporating both types of exercises can provide a well-rounded fitness program."
+  },
+  {
+    id: 6,
+    question: "Should I lift weights for strength training?",
+    answer: "Yes, lifting weights is an effective way to engage in strength training. It helps build muscle mass, increase strength, and improve overall body composition. Start with lighter weights and proper form, gradually increasing the weight as you progress. Consult with a fitness professional to design a safe and effective weightlifting routine."
+  }
+];
+
+
 
 
 
