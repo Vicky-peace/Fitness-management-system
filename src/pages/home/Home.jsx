@@ -5,6 +5,8 @@ import Programs from '../../components/Programs'
 import Values from '../../components/Values'
 import FAQs from '../../components/FAQs'
 
+
+import Testimonial from '../../components/Testimonial'
 import './home.css'
 
 
@@ -21,7 +23,7 @@ const Home = () => {
       <Programs/>
       <Values/>
       <FAQs/>
-     
+     <Testimonial/>
     
      
       

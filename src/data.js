@@ -1,5 +1,8 @@
-
-
+import avatar1 from "./images/avatar1.jpg";
+import avatar2 from "./images/avatar2.jpg";
+import avatar3 from "./images/avatar3.jpg";
+import avatar4 from "./images/avatar4.jpg";
+import avatar5 from "./images/avatar5.jpg";
 
 
 export const links = [
@@ -132,3 +135,41 @@ export const values = [
 ];
 
 export default values;
+
+export const testimonials = [
+  {
+      id: 1,
+      name: "John Smith",
+      quote: "I had an amazing experience at the gym. The trainers were highly knowledgeable and helped me achieve my fitness goals.",
+      job: "Marketing Executive",
+      avatar: avatar1
+  },
+  {
+      id: 2,
+      name: "Emily Johnson",
+      quote: "The gym provided a supportive environment for me to work on my strength and endurance. I saw great improvements in my fitness level.",
+      job: "Graphic Designer",
+      avatar: avatar2
+  },
+  {
+      id: 3,
+      name: "Michael Thompson",
+      quote: "As a professional athlete, I was impressed by the state-of-the-art equipment and personalized training programs offered at the gym.",
+      job: "Professional Athlete",
+      avatar: avatar3
+  },
+  {
+      id: 4,
+      name: "Sophia Martinez",
+      quote: "The gym has a friendly and welcoming atmosphere. The group classes are fun and motivating, making every workout enjoyable.",
+      job: "Teacher",
+      avatar: avatar4
+  },
+  {
+      id: 5,
+      name: "Oliver Davis",
+      quote: "I've never been a fan of exercise, but the gym changed my perspective. The trainers made the workouts engaging and helped me stay motivated.",
+      job: "Writer",
+      avatar: avatar5
+  }
+];
