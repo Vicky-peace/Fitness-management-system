@@ -173,3 +173,73 @@ export const testimonials = [
       avatar: avatar5
   }
 ];
+
+
+
+export const plans = [
+  {
+    id: 1,
+    name: 'Silver Package',
+    desc: 'This package is perfect for beginners who need constant help',
+    price: 'KES 2,999',
+    features: [
+      { feature: 'Personalized Workout Programs', available: true },
+      { feature: 'Access to Fitness Classes', available: true },
+      { feature: 'Gym Equipment Orientation', available: true },
+      { feature: 'Locker and Shower Facilities', available: true },
+      { feature: 'Dedicated Personal Trainer', available: true },
+      { feature: 'Advanced Workout Techniques', available: false },
+      { feature: 'Nutrition Consultation', available: false },
+      { feature: 'Group Training Sessions', available: false },
+      { feature: 'Progress Tracking', available: false },
+      { feature: 'Online Fitness Resources', available: false },
+      { feature: '24/7 Gym Access', available: false },
+      { feature: 'Recovery and Relaxation Area', available: false },
+      { feature: 'Discounted Supplements', available: false },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Gold Package',
+    desc: 'This is the perfect package for beginners who know what they\'re doing',
+    price: 'KES 4,999',
+    features: [
+      { feature: 'Personalized Workout Programs', available: true },
+      { feature: 'Access to Fitness Classes', available: true },
+      { feature: 'Gym Equipment Orientation', available: true },
+      { feature: 'Locker and Shower Facilities', available: true },
+      { feature: 'Dedicated Personal Trainer', available: true },
+      { feature: 'Advanced Workout Techniques', available: true },
+      { feature: 'Nutrition Consultation', available: true },
+      { feature: 'Group Training Sessions', available: true },
+      { feature: 'Progress Tracking', available: false },
+      { feature: 'Online Fitness Resources', available: false },
+      { feature: '24/7 Gym Access', available: false },
+      { feature: 'Recovery and Relaxation Area', available: false },
+      { feature: 'Discounted Supplements', available: false },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Platinum Package',
+    desc: 'This package is perfect for busy people who need home service',
+    price: 'KES 8,999',
+    features: [
+      { feature: 'Personalized Workout Programs', available: true },
+      { feature: 'Access to Fitness Classes', available: true },
+      { feature: 'Gym Equipment Orientation', available: true },
+      { feature: 'Locker and Shower Facilities', available: true },
+      { feature: 'Dedicated Personal Trainer', available: true },
+      { feature: 'Advanced Workout Techniques', available: true },
+      { feature: 'Nutrition Consultation', available: true },
+      { feature: 'Group Training Sessions', available: true },
+      { feature: 'Progress Tracking', available: true },
+      { feature: 'Online Fitness Resources', available: true },
+      { feature: '24/7 Gym Access', available: true },
+      { feature: 'Recovery and Relaxation Area', available: true },
+      { feature: 'Discounted Supplements', available: true },
+    ],
+  },
+];
+
+

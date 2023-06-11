@@ -13,8 +13,9 @@ import SignUp from './pages/signup/SignUp'
 
 /*Components*/
 import Navbar from './components/Navbar'
-
+import Footer from './components/Footer'
 import './App.css'
+
 function App() {
 
 
@@ -25,7 +26,7 @@ function App() {
      <Routes>
      <Route index element={<Home/>}/>
      <Route path='about' element={<About/>}/>
-     <Route path='contact' element={<Contact/>}/>
+     <Route path='contacts' element={<Contact/>}/>
      <Route path='gallery' element={<Gallery/>}/>
      <Route path='plans' element={<Plans/>}/>
      <Route path='trainers' element={<Trainers/>}/>
@@ -33,6 +34,7 @@ function App() {
      <Route path='signup' element = {<SignUp/>}/>
      <Route path='*' element={<NotFound/>}/>
      </Routes>
+     <Footer/>
     </BrowserRouter>
     
     </>

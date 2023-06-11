@@ -8,8 +8,6 @@ import FAQs from '../../components/FAQs'
 
 import Testimonial from '../../components/Testimonial'
 
-import Footer from '../../components/Footer'
-
 import './home.css'
 
 
@@ -26,7 +24,7 @@ const Home = () => {
       <Values/>
       <FAQs/>
      <Testimonial/>
-     <Footer/>
+     
     
      
       
