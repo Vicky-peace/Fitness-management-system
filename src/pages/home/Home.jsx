@@ -7,8 +7,8 @@ import FAQs from '../../components/FAQs'
 
 
 import Testimonial from '../../components/Testimonial'
-import './home.css'
 
+import './home.css'
 
 
 
@@ -24,6 +24,7 @@ const Home = () => {
       <Values/>
       <FAQs/>
      <Testimonial/>
+     
     
      
       
