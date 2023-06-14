@@ -4,7 +4,7 @@ import {Link, NavLink} from 'react-router-dom'
 import { links } from '../data'
 import {GoThreeBars} from 'react-icons/go'
 import {MdOutlineClose} from 'react-icons/md'
-import Logo from '../images/logo.jpg'
+import Logo from '../images/logo.png'
 
 import './navbar.css'
 
@@ -19,7 +19,8 @@ const Navbar = () => {
     <nav>
 <div className='container nav__container'>
 <Link to='/' className='logo' onClick={() => setIsNavShowing(false)}>
-  <img src={Logo} alt="Nav Logo" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+<img src={Logo} alt="Nav Logo" style={{ width: '100px',  backgroundColor: 'yellow' }} />
+
 </Link>
 <ul className={`nav__links ${isNavShowing ? 'show__nav' : 'hide__nav'}`}>
   {

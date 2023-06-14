@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom' 
 import Image from '../images/main-head.jpg'
 
+
 const MainHeader = () => {
   return (
    <header className='main__header'>
@@ -20,6 +21,7 @@ const MainHeader = () => {
     alt="Main Header Image"
     style={{ width: '15rem', height: '15rem', borderRadius: '50%' }}
   />
+  
         </div>
       </div>
     </div>
