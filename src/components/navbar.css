@@ -1,8 +1,7 @@
 nav{
     height: 5rem;
     width: 100vw;
-    background: #333333;
-    box-shadow: 2px 4px 0 black;
+    background: var(--color-primary);
     display: grid;
     place-items: center;
     position: fixed;

@@ -1,23 +1,25 @@
-:root{
-   
-    --primary-hue:210;
-    --gray-hue: 240;
-    --color-primary: hsl(var(--primary-hue),100%, 50%);
-    --color-primary-variant:hsl(var(--primary-hue), 100%, 65%);
-    --color-secondary: #ffb116;
-    --color-gray-100: hsl(var(--gray-hue),47%,94%);
-    --color-gray-200: hsl(var(--gray-hue),26%, 75%);
-    --color-gray-300: hsl(var(--gray-hue),24%, 64%);
-    --color-gray-400: hsl(var(--gray-hue),16%, 41%);
-    --color-gray-500: hsl(var(--gray-hue),44%, 25%);
-    --color-gray-600: hsl(var(--gray-hue),48%, 15%);  
-     
-    --container-width-lg: 80%;
-    --container-width-md: 90%;
 
-    --transition: all 500ms ease;
+    :root {
+        --primary-hue: 300;
+        --gray-hue: 180;
+        --color-primary: #4c91bf;
+        --color-primary-variant: #266b95;
+        --color-secondary: #ff7f00;
+        --color-gray-100: #f2f8fc;
+        --color-gray-200: #d9e6f2;
+        --color-gray-300: #b3ccdf;
+        --color-gray-400: #8fb3c1;
+        --color-gray-500: #607d8c;
+        --color-gray-600: #34495e;
+        
+        --container-width-lg: 75%;
+        --container-width-md: 85%;
+        
+        --transition: all 300ms ease;
+    }
+    
 
-}
+
 
 
 /*General styles*/

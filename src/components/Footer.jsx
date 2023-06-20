@@ -3,7 +3,7 @@ import React from 'react'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import {  FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import Logo from '../images/logo.png'
+
 
 
 const Footer = () => {
@@ -11,11 +11,7 @@ const Footer = () => {
         <footer>
             <div className="container footer__container">
                 <article>
-                <Link to='/' className='logo'>
-                <img src={Logo} alt="Footer logo" style={{ backgroundColor: 'yellow' }} />
 
-
-</Link>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla magni nihil sapiente deserunt odit odio.
                     </p>

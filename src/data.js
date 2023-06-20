@@ -243,3 +243,56 @@ export const plans = [
 ];
 
 
+import Trainer1 from './images/trainer1.jpg';
+import Trainer2 from './images/trainer2.jpg';
+import Trainer3 from './images/trainer3.jpg';
+import Trainer4 from './images/trainer4.jpg';
+import Trainer5 from './images/trainer5.jpg';
+import Trainer6 from './images/trainer6.jpg';
+
+export const trainers = [
+  {
+    id: 1,
+    image: Trainer1,
+    name: 'John Maina',
+    job: 'Aerobic Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  },
+  {
+    id: 2,
+    image: Trainer2,
+    name: 'Daniel Wanjiku',
+    job: 'Speed Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  },
+  {
+    id: 3,
+    image: Trainer3,
+    name: 'Edem Muthoni',
+    job: 'Flexibility Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  },
+  {
+    id: 4,
+    image: Trainer4,
+    name: 'Shatta Kamau',
+    job: 'Body Composition Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  },
+  {
+    id: 5,
+    image: Trainer5,
+    name: 'Diana Ayodi',
+    job: 'Circuit Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  },
+  {
+    id: 6,
+    image: Trainer6,
+    name: 'Wayne Chepkorir',
+    job: 'Physical Intelligence Trainer',
+    socials: ['https://instagram.com/', 'https://twitter.com/', 'https://facebook.com/', 'https://linkedin.com/']
+  }
+];
+
+
