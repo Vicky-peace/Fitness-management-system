@@ -4,6 +4,7 @@ import config from './db/config.js';
 
 // Import routes here
 import userRoutes from './routers/userRoutes.js';
+import plansRoutes from './routers/plansRoutes.js'
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended:true }));
 
 // Instantiate routes here
 userRoutes(app);
+plansRoutes(app);
 
 app.get('/', (req,res) => {
     res.send('Hello Welcome To My Api!');
