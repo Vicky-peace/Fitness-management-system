@@ -3,38 +3,55 @@ import bcrypt from 'bcrypt'
 import config from '../db/config.js';
 import jwt from 'jsonwebtoken';
 
+export const loginRequired = (req, res, next) => {
+    if (req.user) {
+        next();
+    } else {
+        return res.status(401).json({ message: 'Unauthorized user!' });
+    }
+};
 
 
-// Create a user 
-export const createUser = async(req,res) => {
- const { username, email, password,isAdmin} = req.body
-
-//  hash the password
-const hashedpwd = bcrypt.hashSync(password, 10);
-
-   try{
-    let pool = await sql.connect(config.sql);
-    let insertUser= await pool.request()
+// // Create a user or register a user
+// Register or signup
+export const register = async(req,res) =>{
+    const {username,password,email} = req.body;
+  const hashedPassword = bcrypt.hashSync(password,10);
+  try{
+    let pool =await sql.connect(config.sql);
+    const result = await pool.request()
     .input('username',sql.VarChar,username)
-    .input('password',sql.VarChar,hashedpwd)
     .input('email',sql.VarChar,email)
-    .input('isAdmin',sql.Bit,isAdmin)
-    .query('INSERT INTO Users ( username,email, password,isAdmin) VALUES ( @username, @email, @password,@isAdmin)')
-    res.status(200).json({
-        status: 'success',
-        data: insertUser
-    })
-   } catch(error){
-    console.error(error);
-    res.status(404).json(error);
-   }finally{
+    .query('SELECT * FROM Users WHERE username= @username OR email= @email')
+    const user = result.recordset[0];
+     if(user){
+        res.status(404).json({
+                    status: 'error',
+                    message: 'User already exists'
+                })
+     } else{
+        await pool.request()
+        .input('username',sql.VarChar,username)
+        .input('email',sql.VarChar,email)
+        .input('password',sql.VarChar,hashedPassword)
+        .query('INSERT INTO Users (username, email, password) VALUES (@username, @email,@password)');
+        res.status(200).json({
+                            status:'success',
+                            message: 'User registered successfully'
+                        })
+     }
+
+  }catch(error){
+    console.log(error);
+ res.status(500).json({error: 'An error occurred while creating a user'});
+  } finally{
     sql.close();
-   }
+  }
 }
 
 // login a user
 
-export const loginUser = async(req,res) => {
+export const login = async(req,res) => {
    
     try{
         console.log(req.body);
@@ -51,7 +68,7 @@ export const loginUser = async(req,res) => {
         if(!user){
             res.status(404).json({
                             status: 'error',
-                            message: 'User not found'
+                            message: ' Authentication failed. User not found'
                         })
         } else {
             if (!bcrypt.compareSync(password,user.password)){
@@ -62,7 +79,7 @@ export const loginUser = async(req,res) => {
                         })
             } else{
                 // create a jwt token store 
-                const token = `${jwt.sign({email:user.email,isAdmin:user.isAdmin},process.env.SECRET,{expiresIn:process.env.EXPIRY})}`
+                const token = `JWT ${jwt.sign({email:user.email,isAdmin:user.isAdmin},process.env.SECRET,{expiresIn:process.env.EXPIRY})}`
 
                 res.status(200).json({
                     status:'success',
@@ -165,3 +182,8 @@ export const deleteUser = async(req,res) =>{
     sql.close();
 }
 }
+
+
+
+
+

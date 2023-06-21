@@ -25,7 +25,10 @@ const config = {
             encrypt: sqlEncrypt,
             enableArithAbort: true
         }
-    }
+    },
+    
+    SECRET: process.env.SECRET,
+    EXPIRY: process.env.EXPIRY
 };
 
 export default config;
