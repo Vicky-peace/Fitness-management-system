@@ -3,7 +3,7 @@ import { login, register,loginRequired} from '../controllers/userController.js';
 const userRoutes = (app) => {
   app.route("/users")
   .get(loginRequired,getAllUsers)
-  
+
 
   
 

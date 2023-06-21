@@ -1,5 +1,8 @@
 import sql from 'mssql';
 import config from '../db/config.js';
+import jwt from 'jsonwebtoken';
+import {verifyToken} from '../utility/verifyToken.js'
+import {validationResult} from 'express-validator';
 // get all plans
 export const getAllplans = async (req,res) =>{
     try{
@@ -34,39 +37,45 @@ export const getPlanById = async (req,res) =>{
 };
 
 // Choose a plan 
-export const choosePlan = async (req,res) =>{
-    const {user_id, plan_id} = req.params;
+
+// Authentication Middleware
+const authenticateUser = (req,res,next) =>{
+    const authHeader = req.header.authorization;
+    if(authHeader){
+        const token = authHeader.split(' ')[1];
+        jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
+            if(err){
+                res.status(401).json({message:'Invalid Token'});
+            } else{
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else{
+        res.status(401).json({message:'No Token Provided'});
+    }
+};
+
+// Choose a plan and store it in the subscription tabble
+export const choosePlan = async (req, res) => {
+    const { plan_id } = req.body;
     
-    // Check if user is signed in
-    if(!user_id){
-        return res.redirect('/signin'); //Redirect to the sign-in page
-
+    try {
+      const pool = await sql.connect(config.sql);
+      
+      await pool.request()
+        .input('user_id', sql.Int, req.user.user_id)
+        .input('subscription_date', sql.DateTime, new Date())
+        .input('plan_id', sql.Int, plan_id) // Use planId directly in the query
+        .query(`
+          INSERT INTO Subscriptions (plan_id, user_id, subscription_date)
+          VALUES (@plan_id, @user_id, @subscription_date)
+        `);
+      
+      res.status(200).json({ message: 'Plan chosen successfully' });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Failed to choose a plan' });
     }
-
-    try{
-        let pool = await sql.connect(config.sql);
-        const result= await pool.request()
-      .input('plan_id',sql.Int,plan_id)
-      .query('SELECT * FROM Users HWERE user_id= @user_id');
-
-    //   Check if user exists 
-    if(result.recordset.length === 0){
-            return res.redirect('/signup'); //Redirect to the signup page
-        }
-        // User exists , continue with choosing a plan
-        const plansResult = await pool.request()
-        .query('SELECT * FROM Plans WHERE plan_id = @plan_id');
-
-        if(plansResult.recordset.length === 0){
-            res.status(404).json({message:'Plan not found'});
-        } else {
-            // save the users plans choice in the database
-        await pool.request()
-        .query('INSERT INTO Subscriptions (user_id, plan_id, subscription_date) VALUES (@user_id, plan_id, GETDATE());')
-        }
-    }catch (error){
-        res.status(500).json({message:'An error occurred'});
-    } finally {
-        sql.close();
-    }
-}
+  };
+  

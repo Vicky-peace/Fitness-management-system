@@ -1,5 +1,5 @@
 import {getAllplans,getPlanById,choosePlan} from '../controllers/plansController.js';
-
+import { loginRequired,login } from '../controllers/userController.js';
 
 
 const plansRoutes = (app) => {
@@ -8,8 +8,11 @@ const plansRoutes = (app) => {
 
       app.route("/plans/:plan_id")
       .get(getPlanById)
-      .post(choosePlan)
       .put()
       .delete()
+
+
+      app.route("/plans/choose")
+      .post(loginRequired,choosePlan)
 }
 export default plansRoutes;
