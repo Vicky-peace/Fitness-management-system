@@ -2,12 +2,18 @@ import express from 'express';
 import config from './db/config.js';
  import bodyParser from 'body-parser';
  import jwt from 'jsonwebtoken';
+ import cors from 'cors';
+
+
 
 // Import routes here
 import userRoutes from './routers/userRoutes.js';
 import plansRoutes from './routers/plansRoutes.js'
 
 const app = express();
+
+// Enable cors for all routes
+app.use(cors());
 
 // Middlewares here
 app.use(bodyParser.json());

@@ -4,8 +4,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { RiUserLine, RiMailLine, RiLockPasswordLine } from 'react-icons/ri';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { apiDomain } from '../../Utils/Utils';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
     email: Yup.string()
@@ -31,9 +35,17 @@ const SignUp = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-  };
+    axios.post(`${apiDomain}/auth/register`, data)
+    .then((response) => {
+        response.data.message && alert(response.data.message);
+        navigate("/plans");
+    })
+    .catch(({ response }) => {
+        alert(response.data.error);
+    });
 
+};
+ 
   return (
     <div className="signin-container">
       <div className="signin-content">
