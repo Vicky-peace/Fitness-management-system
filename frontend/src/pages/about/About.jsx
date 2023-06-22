@@ -2,9 +2,10 @@ import React from "react";
 import Header from "../../components/Header";
 import "./about.css";
 import HeaderImage from "../../images/header_bg_1.jpg";
-import StoryImage from "../../images/about1.jpg";
-import VisionImage from "../../images/about2.jpg";
-import MissionImage from "../../images/about3.jpg";
+import StoryImage from "../../images/about3.jpg";
+import VisionImage from "../../images/Trainer 1.png";
+import MissionImage from "../../images/About1.jpg";
+import Card from '../../UI/Card'
 
 const About = () => {
   return (
@@ -17,7 +18,7 @@ const About = () => {
       <section className="about__story">
         <div className="container about__story-container">
           <div className="about__section-image">
-            <img src={StoryImage} alt="Our Story" />
+          <Card><img src={StoryImage} alt="Our Story" /></Card>  
           </div>
           <div className="about__section-content">
             <h1>Our Story</h1>
@@ -60,16 +61,15 @@ const About = () => {
               fitness accessible and enjoyable for all.
             </p>
           </div>
-          <div className="about__section-image">
-            <img src={VisionImage} alt="Our Vision" />
+          <div className="about__vision-image">
+        <Card><img src={VisionImage} alt="Our Vision" /></Card>    
           </div>
         </div>
       </section>
-
-      <section className="about__mission">
+  <section className="about__mission">
         <div className="container about__mission-container">
-          <div className="about__section-image">
-            <img src={MissionImage} alt="Our Mission" />
+          <div className="about__mission-image">
+         <Card> <img src={MissionImage} alt="Our Mission" /></Card>  
           </div>
           <div className="about__section-content">
             <h1>Our Mission</h1>
@@ -95,6 +95,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      
     </>
   );
 };

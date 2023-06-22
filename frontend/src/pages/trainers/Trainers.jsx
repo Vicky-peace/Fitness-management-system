@@ -7,12 +7,12 @@ import { AiOutlineTwitter } from 'react-icons/ai'
 import { FaLinkedinIn } from 'react-icons/fa'
 
 // Import other trainers' images
-import Trainer1 from '../../images/trainer1.jpg';
-import Trainer2 from '../../images/trainer2.jpg';
-import Trainer3 from '../../images/trainer3.jpg';
-import Trainer4 from '../../images/trainer4.jpg';
-import Trainer5 from '../../images/trainer5.jpg';
-import Trainer6 from '../../images/trainer6.jpg';
+import Trainer1 from '../../images/trainer4.jpg';
+import Trainer2 from '../../images/Trainer 2.jpg';
+import Trainer3 from '../../images/Trainer 3.jpg';
+import Trainer4 from '../../images/Trainer 4.jpg';
+import Trainer5 from '../../images/Trainer 5.jpg';
+import Trainer6 from '../../images/Trainer 6.jpg';
 
 import './trainers.css';
 

@@ -5,51 +5,7 @@ import avatar4 from "./images/avatar4.jpg";
 import avatar5 from "./images/avatar5.jpg";
 
 
-import { RiHome2Line, RiInformationLine, RiGalleryLine, RiCalendar2Line, RiUserLine, RiContactsLine } from 'react-icons/ri';
-import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
-export const links = [
-  {
-    name: "Home",
-    path: '/',
-    icon: <RiHome2Line />
-  },
-  {
-    name: "About",
-    path: '/about',
-    icon: <RiInformationLine />
-  },
-  {
-    name: "Gallery",
-    path: '/gallery',
-    icon: <RiGalleryLine />
-  },
-  {
-    name: "Plans",
-    path: '/plans',
-    icon: <RiCalendar2Line />
-  },
-  {
-    name: "Trainers",
-    path: '/trainers',
-    icon: <RiUserLine />
-  },
-  {
-    name: "Contact",
-    path: '/contacts',
-    icon: <RiContactsLine />
-  },
-  {
-    name: 'Sign In',
-    path: '/signin',
-    icon: <FaSignInAlt />
-  },
-  {
-    name: 'Sign Up',
-    path: '/signup',
-    icon: <FaUserPlus />
-  }
-];
 
 
 export const faqs = [

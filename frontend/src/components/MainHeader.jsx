@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom' 
 import Image from '../images/main-head.jpg'
-
+import Lottie from "lottie-react";
+import Benchpress from '../images/bench-press.json';
 
 const MainHeader = () => {
   return (
@@ -16,11 +17,8 @@ const MainHeader = () => {
       <div className="main__header-right">
         <div className="main__header-circle"></div>
         <div className="main__header-image">
-        <img
-    src={Image}
-    alt="Main Header Image"
-    style={{ width: '15rem', height: '15rem', borderRadius: '50%' }}
-  />
+
+  <Lottie animationData={Benchpress} />;
   
         </div>
       </div>

@@ -4,7 +4,7 @@ import HeaderImage from '../../images/header_bg_3.jpg';
 import './gallery.css';
 
 const Gallery = () => {
-  const galleryLength = 15;
+  const galleryLength = 18;
   const [images, setImages] = useState([]);
 
   useEffect(() => {
