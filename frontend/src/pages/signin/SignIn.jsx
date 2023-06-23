@@ -5,10 +5,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { RiMailLine, RiLockPasswordLine } from 'react-icons/ri'; // Import the desired icons
+import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { Context } from '../../../context/userContext/Context';
 
-import './SignIn.css'; // Import the CSS file for SignIn component
+import './signin.css'; // Import the CSS file for SignIn component
 
 const SignIn = () => {
+
+  const {user,dispatch} = useContext(Context);
+  console.log(user)
+
+
+
+
+
+  const navigate= useNavigate();
   const schema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Invalid email address'),
     password: Yup.string().required('Password is required'),
@@ -20,15 +32,24 @@ const SignIn = () => {
 
   const [error, setError] = useState(null);
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     try {
-      const response = await axios.post('http://localhost:8080/signin', data);
-      console.log(response.data);
+      axios.post('http://localhost:8080/auth/login', data)
+        .then(({ data }) => {
+          if (data.taken) {
+            dispatch({ type:"Login Success",payload:data });
+            navigate('/plans');
+          }
+        })
+         .catch(({ response }) => {
+          alert(response.data.error);
+        });
     } catch (error) {
       setError(error.response.data.message);
     }
   };
-
+  
+   
   return (
     <div className="signin-container">
       <div className="signin-content">

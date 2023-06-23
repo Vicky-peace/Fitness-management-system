@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import HeaderImage from "../../images/header_bg_4.jpg";
 import Card from "../../UI/Card";
@@ -28,7 +29,9 @@ const Plans = () => {
                     </p>
                   );
                 })}
-                <button className="btn lg">Choose Plan</button>
+                <Link to="/signin">
+                  <button className="btn lg">Choose Plan</button>
+                </Link>
               </Card>
             );
           })}
