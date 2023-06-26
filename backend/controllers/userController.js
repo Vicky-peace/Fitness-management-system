@@ -20,9 +20,8 @@ export const register = async(req,res) =>{
   try{
     let pool =await sql.connect(config.sql);
     const result = await pool.request()
-    .input('username',sql.VarChar,username)
     .input('email',sql.VarChar,email)
-    .query('SELECT * FROM Users WHERE username= @username OR email= @email')
+    .query('SELECT * FROM Users WHERE email= @email')
     const user = result.recordset[0];
      if(user){
         res.status(404).json({
@@ -52,25 +51,26 @@ export const register = async(req,res) =>{
 // login a user
 
 export const login = async(req,res) => {
-   
+    const {email, password} = req.body;
     try{
         console.log(req.body);
-        console.log(process.env.SECRET);
-        const {email, password} = req.body
+        // console.log(process.env.SECRET);
+       
     
         // The connection to the DB
         let pool = await sql.connect(config.sql);
-        const result = await pool.request()
+        let result = await pool.request()
         .input('email',sql.VarChar,email)
         .query('SELECT * FROM Users WHERE email = @email');
+        console.log(result);
         const user = result.recordset[0];
         console.log(user);
         if(!user){
-            res.status(404).json({
+            res.status(401).json({
                             status: 'error',
                             message: ' Authentication failed. User not found'
                         })
-        } else {
+        } else if (user) {
             if (!bcrypt.compareSync(password,user.password)){
 
                                 res.status(404).json({
@@ -79,13 +79,16 @@ export const login = async(req,res) => {
                         })
             } else{
                 // create a jwt token store 
-                const token = `JWT ${jwt.sign({email:user.email,isAdmin:user.isAdmin},process.env.SECRET,{expiresIn:process.env.EXPIRY})}`
+                let token = `JWT ${jwt.sign(
+                    {
+                        email:user.email,
+                    username: user.username,
+                     user_id: user.user_id
+                    }, process.env.SECRET,{expiresIn:process.env.EXPIRY})}`;
 
-                res.status(200).json({
-                    status:'success',
-                    data:user,
-                    accesToken:token
-                })
+                const {user_id, username,email} = user;
+                return res.json({ id: user_id, username: username, email: email, token: token });
+                
             }
         }
         

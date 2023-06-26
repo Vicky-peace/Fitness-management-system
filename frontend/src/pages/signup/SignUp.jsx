@@ -36,15 +36,15 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     axios.post(`${apiDomain}/auth/register`, data)
-    .then((response) => {
+      .then((response) => {
         response.data.message && alert(response.data.message);
         navigate("/plans");
-    })
-    .catch(({ response }) => {
+      })
+      .catch(({ response }) => {
+        console.log(response);
         alert(response.data.error);
-    });
-
-};
+      });
+  };
  
   return (
     <div className="signin-container">

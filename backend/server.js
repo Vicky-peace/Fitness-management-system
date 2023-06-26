@@ -12,12 +12,13 @@ import plansRoutes from './routers/plansRoutes.js'
 
 const app = express();
 
-// Enable cors for all routes
-app.use(cors());
-
 // Middlewares here
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
+// Enable cors for all routes
+app.use(cors());
+
+
 // jwt middleware
 app.use((req,res,next) => {
     if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
@@ -32,6 +33,7 @@ app.use((req,res,next) => {
     }
     
 })
+
 
 
 

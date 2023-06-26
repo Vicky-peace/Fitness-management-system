@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import Axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { RiMailLine, RiLockPasswordLine } from 'react-icons/ri'; // Import the desired icons
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
-import { Context } from '../../../context/userContext/Context';
+import { Context } from '../../context/Context';
 
 import './signin.css'; // Import the CSS file for SignIn component
 
 const SignIn = () => {
 
   const {user,dispatch} = useContext(Context);
-  console.log(user)
-
-
-
-
-
   const navigate= useNavigate();
+
+
+
+
+  
   const schema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Invalid email address'),
     password: Yup.string().required('Password is required'),
@@ -34,19 +33,24 @@ const SignIn = () => {
 
   const onSubmit = (data) => {
     try {
-      axios.post('http://localhost:8080/auth/login', data)
+      Axios.post('http://localhost:8080/auth/login', data)
         .then(({ data }) => {
-          if (data.taken) {
+          if (data.token) {
+            alert('You are logged in!')
             dispatch({ type:"Login Success",payload:data });
             navigate('/plans');
+            console.log(user)
           }
         })
          .catch(({ response }) => {
+        
           alert(response.data.error);
         });
-    } catch (error) {
-      setError(error.response.data.message);
-    }
+    
+      }finally{
+
+      }
+
   };
   
    
@@ -59,7 +63,7 @@ const SignIn = () => {
           <div className="signin-form-field">
             <RiMailLine className="signin-input-icon" />
             <input
-              type="email"
+              type="text"
               id="email"
               placeholder='Email..'
               {...register("email")}
