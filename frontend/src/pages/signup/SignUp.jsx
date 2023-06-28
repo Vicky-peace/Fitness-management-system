@@ -7,7 +7,7 @@ import { RiUserLine, RiMailLine, RiLockPasswordLine } from 'react-icons/ri';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { apiDomain } from '../../Utils/Utils';
-import {Context} from '../../context/Context';
+import {Context} from '../../context/userContext/Context';
 import { useContext } from 'react';
 
 

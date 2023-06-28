@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { RiMailLine, RiLockPasswordLine } from 'react-icons/ri'; // Import the desired icons
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
-import { Context } from '../../context/Context';
+import { Context } from '../../context/userContext/Context';
 
 import './signin.css'; // Import the CSS file for SignIn component
 

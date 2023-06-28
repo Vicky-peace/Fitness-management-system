@@ -7,7 +7,7 @@ import { plans } from "../../data";
 import { apiDomain } from "../../Utils/Utils";
 import Axios from "axios";
 import { useContext } from "react";
-import { Context } from "../../context/Context";
+import { Context } from "../../context/userContext/Context";
 import "./plans.css";
 
 const Plans = () => {

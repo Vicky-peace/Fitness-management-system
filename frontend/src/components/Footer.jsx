@@ -25,19 +25,12 @@ const Footer = () => {
                 <article>
                  <h4>Permalinks</h4>
                  <Link to= '/about'>About</Link>
-                 <Link to= '/plans'>Plans</Link>
-                 <Link to= '/trainers'>Trainers</Link>
-                 <Link to= '/gallery'>Gallery</Link>
-                 <Link to= '/contacts'>Contact</Link>
                  <Link to= '/signin'>Sign In</Link>
                  <Link to= '/signup'>Sign Up</Link>
                 </article>
                 <article>
                     <h4>Insights</h4>
                     <Link to='/s'>Blog</Link>
-                    <Link to='/s'>Case Studies</Link>
-                    <Link to='/s'>Events</Link>
-                    <Link to='/s'>Communities</Link>
                     <Link to='/s'>FAQs</Link>
                 </article>
                 <article>

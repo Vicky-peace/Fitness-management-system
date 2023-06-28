@@ -6,15 +6,19 @@ import { RiHome2Line, RiInformationLine, RiGalleryLine, RiCalendar2Line, RiUserL
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useContext } from 'react';
-import {Context} from '../context/Context';
+import {Context} from '../context/userContext/Context';
+import { useNavigate } from "react-router-dom";
 import './navbar.css';
 
 
 const Navbar = () => {
+ 
   const [isNavShowing, setIsNavShowing] = useState(false);
  const {user,dispatch} = useContext(Context)
+ const navigate = useNavigate();
  const handleLogout = () =>{
   dispatch({type:'LOGOUT'});
+  navigate('/');
  }
 
   return (
@@ -35,21 +39,13 @@ const Navbar = () => {
               <RiInformationLine /> About
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/gallery" onClick={() => setIsNavShowing(false)}>
-              <RiGalleryLine /> Gallery
-            </NavLink>
-          </li>
+         
           <li>
             <NavLink to="/trainers" onClick={() => setIsNavShowing(false)}>
               <RiUserLine /> Trainers
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/contacts" onClick={() => setIsNavShowing(false)}>
-              <RiContactsLine /> Contact
-            </NavLink>
-          </li>
+          
           <li>
             <NavLink to="/signin" onClick={() => setIsNavShowing(false)}>
               <FaSignInAlt /> Sign In
@@ -68,7 +64,7 @@ const Navbar = () => {
                </NavLink>
              </li>
              <li>
-  <NavLink to="/logout" onClick={() => { handleLogout(); setIsNavShowing(false); }}>
+  <NavLink  onClick={handleLogout}>
     <FaSignOutAlt /> Logout
   </NavLink>
 </li>

@@ -157,7 +157,7 @@ section{
 
 /* General Style for header */
 .header{
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     height: 20rem;
     overflow: hidden;
     border-bottom: 2px solid var(--color-gray-400);

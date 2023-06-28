@@ -14,12 +14,13 @@ import SignUp from './pages/signup/SignUp'
 /*Components*/
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Profile from './components/Profile'
 import ScrollToTop from './components/ScrollToTop'
 // Context
 import { useContext } from 'react';
-import {Context} from './context/Context'
+import {Context} from './context/userContext/Context'
+import Dashboard from './pages/Dashboard'
 import './App.css'
-
 
 
 function App() {
@@ -29,12 +30,14 @@ function App() {
     <>
     <BrowserRouter>
     <ScrollToTop />
-    <Navbar/>
+   <Dashboard/>
     
      <Routes>
+     
      <Route index element={<Home/>}/>
      <Route path='about' element={<About/>}/>
      <Route path='contacts' element={<Contact/>}/>
+     <Route path='profile' element={user ? <Profile/>: <Home/>}/>
      <Route path='gallery' element={<Gallery/>}/>
      <Route path='plans' element={user ?<Plans/> : <Home/>}/>
      <Route path='trainers' element={<Trainers/>}/>
