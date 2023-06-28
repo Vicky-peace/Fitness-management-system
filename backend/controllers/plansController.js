@@ -58,14 +58,14 @@ const authenticateUser = (req,res,next) =>{
 
 // Choose a plan and store it in the subscription tabble
 export const choosePlan = async (req, res) => {
-    const { plan_id } = req.body;
+    const { plan_id,user_id, subscription_date } = req.body;
     
     try {
-      const pool = await sql.connect(config.sql);
+      let pool = await sql.connect(config.sql);
       
       await pool.request()
-        .input('user_id', sql.Int, req.user.user_id)
-        .input('subscription_date', sql.DateTime, new Date())
+        .input('user_id', sql.Int, user_id)
+        .input('subscription_date', sql.DateTime, new Date(subscription_date))
         .input('plan_id', sql.Int, plan_id) // Use planId directly in the query
         .query(`
           INSERT INTO Subscriptions (plan_id, user_id, subscription_date)

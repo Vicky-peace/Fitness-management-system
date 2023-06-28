@@ -3,7 +3,7 @@ const Reducer = (state, action) => {
 
         case "LOGIN_SUCCESS":
             return {
-                user: action.payload
+                user: action.payload,
             }
         case "LOGIN_FAILURE":
             return {

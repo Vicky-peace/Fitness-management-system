@@ -15,22 +15,28 @@ import SignUp from './pages/signup/SignUp'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+// Context
+import { useContext } from 'react';
+import {Context} from './context/Context'
 import './App.css'
+
+
 
 function App() {
 
-
+  const {user} = useContext(Context)
   return (
     <>
     <BrowserRouter>
     <ScrollToTop />
     <Navbar/>
+    
      <Routes>
      <Route index element={<Home/>}/>
      <Route path='about' element={<About/>}/>
      <Route path='contacts' element={<Contact/>}/>
      <Route path='gallery' element={<Gallery/>}/>
-     <Route path='plans' element={<Plans/>}/>
+     <Route path='plans' element={user ?<Plans/> : <Home/>}/>
      <Route path='trainers' element={<Trainers/>}/>
      <Route path = 'signin' element ={<SignIn/>}/>
      <Route path='signup' element = {<SignUp/>}/>

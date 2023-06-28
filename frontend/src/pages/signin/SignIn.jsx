@@ -13,7 +13,7 @@ import './signin.css'; // Import the CSS file for SignIn component
 
 const SignIn = () => {
 
-  const {user,dispatch} = useContext(Context);
+  const {dispatch} = useContext(Context);
   const navigate= useNavigate();
 
 
@@ -36,15 +36,15 @@ const SignIn = () => {
       Axios.post('http://localhost:8080/auth/login', data)
         .then(({ data }) => {
           if (data.token) {
-            alert('You are logged in!')
-            dispatch({ type:"Login Success",payload:data });
+            
+            dispatch({ type:"LOGIN_SUCCESS",payload:data });
             navigate('/plans');
-            console.log(user)
+            alert('You are logged in!')
+            // console.log(user)
           }
         })
          .catch(({ response }) => {
-        
-          alert(response.data.error);
+          alert('Authentication error. Enter Correct Credentials');
         });
     
       }finally{

@@ -22,7 +22,7 @@ const Programs = () => {
                                 <Card className="programs__program" key={id}>
                                     <h4>{title}</h4>
                                     <small>{info}</small>
-                                    <Link to={path} className='btn sm'>Learn More <AiFillCaretRight /></Link>
+                                    <Link to='/about' className='btn sm'>Learn More <AiFillCaretRight /></Link>
                                 </Card>
                             )
                         })

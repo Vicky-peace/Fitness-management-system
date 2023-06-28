@@ -11,11 +11,7 @@ const Footer = () => {
         <footer>
             <div className="container footer__container">
                 <article>
-                <Link to='/' className='logo'>
-                <img src={Logo} alt="Footer logo" style={{ backgroundColor: 'yellow' }} />
 
-
-</Link>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla magni nihil sapiente deserunt odit odio.
                     </p>

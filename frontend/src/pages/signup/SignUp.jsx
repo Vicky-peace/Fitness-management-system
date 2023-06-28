@@ -7,9 +7,16 @@ import { RiUserLine, RiMailLine, RiLockPasswordLine } from 'react-icons/ri';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { apiDomain } from '../../Utils/Utils';
+import {Context} from '../../context/Context';
+import { useContext } from 'react';
+
+
 
 const SignUp = () => {
+  const { user, dispatch} = useContext(Context);
+  console.log(user);
   const navigate = useNavigate();
+
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
     email: Yup.string()
