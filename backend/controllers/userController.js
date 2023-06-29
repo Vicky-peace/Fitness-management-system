@@ -106,11 +106,8 @@ export const getAllUsers = async(req,res) =>{
     try{
       let pool = await sql.connect(config.sql);
       let users = await pool.request()
-      .query('SELECT * FROM Users');
-      res.status(200).json({
-              status:'success',
-              data:users.recordsets
-            })
+      .query('SELECT user_id, username, email FROM Users');
+      res.status(200).json(users.recordsets[0])
     }catch(error){
   res.status(404).json(error);
     } finally{

@@ -13,6 +13,7 @@ import SignUp from './pages/signup/SignUp'
 
 /*Components*/
 import Navbar from './components/Navbar'
+import Members from './components/Members'
 import Footer from './components/Footer'
 import Profile from './components/Profile'
 import ScrollToTop from './components/ScrollToTop'
@@ -42,6 +43,7 @@ function App() {
      <Route path='plans' element={user ?<Plans/> : <Home/>}/>
      <Route path='trainers' element={<Trainers/>}/>
      <Route path = 'signin' element ={<SignIn/>}/>
+     <Route path = 'members' element ={<Members/>}/>
      <Route path='signup' element = {<SignUp/>}/>
      <Route path='*' element={<NotFound/>}/>
      </Routes>
